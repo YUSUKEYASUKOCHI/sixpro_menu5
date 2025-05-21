@@ -2,13 +2,15 @@ import React from 'react';
 import { Clock, ChefHat, Fish, Beef, Carrot } from 'lucide-react';
 import { motion } from 'framer-motion';
 
+interface Filters {
+  time?: string;
+  difficulty?: string;
+  mainIngredient?: string;
+}
+
 interface MenuFilterProps {
-  filters: {
-    time?: string;
-    difficulty?: string;
-    mainIngredient?: string;
-  };
-  onFilterChange: (filters: any) => void;
+  filters: Filters;
+  onFilterChange: (filters: Filters) => void;
 }
 
 export default function MenuFilter({ filters, onFilterChange }: MenuFilterProps) {
