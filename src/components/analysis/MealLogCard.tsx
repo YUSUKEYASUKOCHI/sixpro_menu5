@@ -1,11 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Clock, ChefHat, Heart } from 'lucide-react';
+import { format } from 'date-fns';
 
 interface MealLogCardProps {
   meal: {
     name: string;
-    time: string;
+    timestamp: number;
     pfc: {
       protein: number;
       fat: number;
@@ -28,7 +29,9 @@ export default function MealLogCard({ meal }: MealLogCardProps) {
           <h3 className="text-lg font-medium text-gray-900">{meal.name}</h3>
           <div className="flex items-center gap-2 text-gray-500">
             <Clock className="h-4 w-4" />
-            <span className="text-sm">{meal.time}</span>
+            <span className="text-sm">
+              {format(new Date(meal.timestamp), 'HH:mm')}
+            </span>
           </div>
         </div>
 
