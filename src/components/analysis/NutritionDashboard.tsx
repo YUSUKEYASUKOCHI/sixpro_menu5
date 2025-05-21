@@ -14,7 +14,8 @@ import {
 } from 'chart.js';
 import { format } from 'date-fns';
 import { Flame, TrendingUp, Award } from 'lucide-react';
-import { getWeeklyLogs, getMealsByDate } from '../../utils/mealLogger';
+import type { ChartData } from 'chart.js';
+import { getWeeklyLogs, getMealsByDate, type MealLog } from '../../utils/mealLogger';
 import MealLogger from './MealLogger';
 import MealLogCard from './MealLogCard';
 
@@ -30,8 +31,8 @@ ChartJS.register(
 );
 
 export default function NutritionDashboard() {
-  const [weeklyData, setWeeklyData] = useState<any>(null);
-  const [todaysMeals, setTodaysMeals] = useState<any[]>([]);
+  const [weeklyData, setWeeklyData] = useState<ChartData<'line'> | null>(null);
+  const [todaysMeals, setTodaysMeals] = useState<MealLog[]>([]);
   const [todaysTotals, setTodaysTotals] = useState({
     protein: 0,
     fat: 0,

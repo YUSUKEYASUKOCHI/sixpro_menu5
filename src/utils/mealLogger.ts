@@ -3,7 +3,7 @@ import type { DBSchema } from 'idb';
 import { format } from 'date-fns';
 import { encrypt, decrypt } from './encryption';
 
-interface MealLog {
+export interface MealLog {
   id?: number;
   date: string;
   mealType: '朝食' | '昼食' | '夕食' | '間食';
